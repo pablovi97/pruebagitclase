@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .popover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tooltip</h1>
+    Hola , esto fhfghfhfghfghfghfghfhfhes una <abbr title="Organizacion No Gubernamental" data-toogle="tooltip"
+        data-placement="left" role="tooltip">ONG</abbr>
+    hola , esto <a href="#" title="aqui va una ayudita" data-toogle="tooltip" data-placement="right" role="tooltip"> es
+        un texto </a> adios
+    <hr>
+
+    <h1>popover</h1>
+    hola , esto <a href="#" title="aqui va una ayudita" data-content="mas info..." data-toogle="popover"
+        data-placement="top" role="tooltip"> es un texto </a> adios
+    <hr>
+    <h1>Toast</h1>
+
+    <button id="cerrar_todo" type="button">cerrar</button>
+    <div style="position :absolute; top:0 ; right:0;">
+
+
+        <div class="toast bg-success" id="toast123" data-delay="5000" class="m-3">
+            <div class="toast-header">
+                <strong>Pepe</strong>
+                <small>Hace 10 minutos</small>
+                <button type="button" class="close" data-dismiss="toast">&times;</button>
+            </div>
+            <div class="toast-body">
+                No toques nada!!
+            </div>
+        </div>
+        <div class="toast bg-success" id="toast1234" data-delay="5000" class="m-3">
+            <div class="toast-header">
+                <strong>Pepe</strong>
+                <small>Hace 10 minutos</small>
+                <button type="button" class="close" data-dismiss="toast">&times;</button>
+            </div>
+            <div class="toast-body">
+                No toques nada!!
+            </div>
+        </div>
+        <div class="toast bg-success" id="toast12345" data-delay="5000" class="m-3">
+            <div class="toast-header">
+                <strong>Pepe</strong>
+                <small>Hace 10 minutos</small>
+                <button type="button" class="close" data-dismiss="toast">&times;</button>
+            </div>
+            <div class="toast-body">
+                No toques nada!!
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+
+        $(function () {
+            $('[data-toogle="tooltip"]').tooltip();
+            $('[data-toogle="popover"]').popover();
+            $('.toast').toast('show');
+            $('#cerrar_todo').on("click", function () {
+
+                $('.toast').toast('hide');
+           
+
+
+            });
+
+
+  
+
+        });
+
+
+    </script>
+</body>
+
+</html>

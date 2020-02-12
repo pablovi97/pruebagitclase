@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="cogeElem()">
+
+
+<form id="pedro_id" name="pedro_name">
+
+
+        <input id="input_id" name="input_name" oninput="this.form.copia_name.value = this.value">
+       
+        <input id="copia_id" name="copia_name" >
+        <select name="frutas_name" id="frutas_id" onchange="this.options[this.selectedIndex].text = this.form.copia_id.value">
+            <option value="plat">Platanos</option>
+            <option value="manz">manzanos</option>
+            <option value="melc">melocoton</option>
+        </select>
+
+
+
+</form>
+ 
+<script src="dom.js"></script>   
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>resp_exp</h1>
+
+
+
+    <form id="test" name="test" onsubmit="if (validateALL()){return confirm('Quieres enviar?') ;} else return false">
+
+        <label for="cod_postal">Codigo postal :</label>
+        <input type="text" id="cod_postal" name="cod_postal" value="" oninput="validate(this ,'codigo_postal')">
+
+        <br>
+        <label for="edad">Edad :</label>
+        <input type="text" id="edad" name="edad" value="" oninput="validate(this ,'natural')">
+
+
+        <br>
+        <label for="temperatura">temperatura :</label>
+        <input type="text" id="temperatura" name="temperatura" value="" oninput="validate(this ,'entero')">
+
+
+
+        <br>
+        <label for="nota">Nota :</label>
+        <input type="text" id="nota" name="nota" value="" oninput="validate(this ,'decimal')">
+        <br>
+        
+        <label for="matricula">matricula :</label>
+        <input type="text" id="matricula" name="matricula" value="" oninput="validate(this ,'matricula')">
+
+        <br>
+        
+        <label for="email">Email :</label>
+        <input type="text" id="email" name="email" value="" oninput="validate(this ,'Email')">
+        <br>
+        <button type="submit">Enviar</button>
+
+
+
+
+    </form>
+    <script>
+        function validateALL() {
+            let data = new Map();
+            data.set("cod_postal", "codigo_postal");
+            data.set("edad", "natural");
+            data.set("temperatura", "entero");
+            data.set("nota", "flotante");
+            data.set("matricula", "matricula");
+            let form_ok = true;
+
+            for (let [id, tipo] of data) {
+                let elem = document.getElementById(id);
+                let result = validate(elem, tipo);
+                if (form_ok && !result) {
+                    form_ok = false;
+                    elem.focus();
+                }
+            }
+            return form_ok;
+
+        }
+        function validate(elem, tipo) {
+            let re = /.*/;
+            switch (tipo) {
+///^[A-Z]{1,2}[-][0-9]{4}[-][A-Z]{1,2}$/
+                case 'codigo_postal': re = /^\d{5}$/;                           break;
+                case 'natural': re = /^\d*$/;                                   break;
+                case 'entero': re = /^[-+]?\d+$/;                               break;
+                case 'decimal': re = /^[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?$/; break;
+                case 'matricula': re = /(^[A-Z]{1,2}[-][0-9]{4}[-][A-Z]{1,2}$)|(^[0-9]{4}\s[BCDFGHJKLMNPRSTVWXYZ]{3}$)/; break;
+                case 'Email': re = /^[A-z]*[@][A-z]{4}[\.][a-z]{4}$/; break;
+            }
+
+
+            let result = re.test(elem.value);
+            let color = (result) ? "green" : "red";
+            elem.style.border = `3px ${color} solid`;
+            return result;
+
+        }
+        var re1 = new RegExp("[0-9][0-9]", "i"); //de 0 a 99
+        var re2 = new RegExp(/[0-9][0-9]/, "i");
+        var re3 = /[0-9][0-9][a-z]/igm; //i si te da igual mayus o minus la g es global pilla todos os numeros 
+        //no solo el primero ej:jhfdjg4j5kjkjh4k si le quitas la g se para en g la m es multilinea 
+
+
+        console.log(re1.test(1234));
+
+
+
+        function eliminarHTML(codigo) {
+            var re = /<[^>]*>/g;
+
+            return codigo.replace(re, '');
+
+        }
+
+        texto = "<p> en un <strong> lugar del que no quiero acordarme</strong> hola que tañ </p>"
+        console.log(eliminarHTML(texto));
+
+        function nombrePersona(candidato) {
+            var re = /^[A-Za-z\u00C0-\u017F]*$/;
+            return re.test(candidato);
+        }
+        console.log(nombrePersona("Malñkñkñkñkçççpçirña"));
+    </script>
+</body>
+
+</html>

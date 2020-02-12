@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+   console.log(document.cookie);
+   let x =5;
+   document.cookie = "a = 4";
+   document.cookie = "b = pepito";
+   document.cookie = "c = 4.5";
+   document.cookie = "x =" + encodeURIComponent(x);
+   console.log(document.cookie);
+
+
+
+   function add_cookie(key ,val){
+       document.cookie = key + "=" +encodeURIComponent(val);
+   }
+
+</script>
+ </body>
+</html>

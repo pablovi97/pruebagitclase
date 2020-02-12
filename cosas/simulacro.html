@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <select id="primary"></select><br>
+    <select id="secondary"></select>
+
+
+
+    <script>
+
+        window.onload = function () {
+            var opciones = new Map();
+            opciones.set('Alpacas', ['marrones', 'negras', 'azules']);
+            opciones.set('Coches', ['ruedas', 'BMW']);
+            opciones.set('Ropa', ['tenis', 'camisetas', 'otro tenis']);
+
+
+            let primary = document.getElementById('primary');
+            let secondary = document.getElementById('secondary');
+
+            primary.options.add(new Option("---Elija una opcion---"));
+            secondary.options.add(new Option("---Desactivado---"));
+            secondary.disabled = true;
+
+
+            for (let [key, val] of opciones) {
+                let opc = document.createElement('OPTION');
+                opc.value = key;
+                opc.text = key;
+                primary.options.add(opc);
+            }
+
+
+
+
+
+        }
+        primary.onchange = () => build_secondary();
+
+        function build_secondary(pri, sec, opc) {
+
+            //sec.options.length = 0;
+            for(let i = sec.options.legth; i>=0;i--){
+                sec.options.remove(i);
+            }
+
+
+            if(opciones.has(pri.value)){
+                sec.options
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

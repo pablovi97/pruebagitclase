@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    #cuadrado{
+        border:1px solid red;
+        background-color: aquamarine;
+        width: 100px;
+        height: 100px;
+        transform: skewX(-20deg) rotate(10deg);
+        /*transition : property duration time-function delay (initial!inherit)*/
+        transition: width 2s ease-in-out 0.3s;
+        position :relative;
+        /*animation name duration timing-functopn delay iteration-count direction fill-mode play-state*/
+        animation: paseo 3s infinite alternate;
+    
+        
+    }
+
+    @keyframes paseo {
+        from{
+            left:0px ;top:0px ;background-color: aquamarine;
+        }
+        25%{
+            left:700px ;top:0px ;background-color: darkolivegreen;
+        }
+        50%{
+            left:700px ;top:700px ;background-color: blanchedalmond;
+        }
+        75%{
+            left:0px ;top:700px ;background-color: orangered;
+        }
+        to{
+            left: 0px ;top:0px ; background-color: blueviolet
+            }
+    }
+    #cuadrado:hover{
+        width: 1000px;
+        background-color: blue;
+    }
+    </style>
+</head>
+<body>
+    <div id="cuadrado"></div>
+</body>
+</html>

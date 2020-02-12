@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  
+</head>
+
+<body>
+<h1 id="titulo">holaaa!!</h1>
+    Fosiles <button id="add">[+]</button>
+    <div id="fields">
+
+
+    </div>
+    <script>
+
+
+        window.onload = function () {
+            let add = document.getElementById('add');
+            add.onclick = add_field;
+
+            titulo = document.getElementById('titulo');
+            //titulo.insertAdjacentText("","AA");
+
+        }
+
+
+        function add_field() {
+            //verificar que no recibe null!!!!
+
+            let fields = document.getElementById('fields');
+
+
+            let lastId = (fields.lastElementChild) ? +fields.lastElementChild.valor + 1 : 1;
+
+
+
+
+            let container = document.createElement('div');
+            container.valor = lastId;
+            container.id = "cont" + lastId;
+
+            let label = document.createElement('label');
+            label.id = "label" + lastId;
+            label.for = "campo" + lastId;
+
+            let texto_label = document.createTextNode("valor:" + lastId);
+            label.appendChild(texto_label);
+
+
+
+            let input = document.createElement('input');
+            input.id = "campo";
+            input.type = "text";
+
+            let button = document.createElement('button');
+
+
+            button.id = "cierra" + lastId;
+            button.type = "button";
+            let texto_boton = document.createTextNode("[X]");
+
+            //button.onclick =()=>container.remove();
+            button.onclick = () => container.parentElement.removeChild(container);
+            button.appendChild(texto_boton);
+
+
+            container.appendChild(label);
+            container.appendChild(input);
+            container.appendChild(button);
+            fields.appendChild(container);
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
